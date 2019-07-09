@@ -45,15 +45,31 @@ public class UserController {
         return dataGrid;
     }
     @RequestMapping("onlineUsers")
-    public DataGridEntity onlineUsers(String condition){
+    public DataGridEntity onlineUsers(String condition,Integer page,Integer limit){
+        JSONObject jsonObject=JSONObject.parseObject(condition);
         DataGridEntity dataGrid=new DataGridEntity();
         dataGrid.setCount(SecurityUtil.onlineMap.size());
         List<OnlineEntity> list =new ArrayList<>();
         Set<String> keys = SecurityUtil.onlineMap.keySet();
         for(String key:keys){
+            if(jsonObject!=null){
+                String userCode=jsonObject.get("userCode")==null?null:jsonObject.get("userCode").toString();
+                String userName=jsonObject.get("userName")==null?null:jsonObject.get("userName").toString();
+                if(userCode!=null&& !"".equals(userCode)&&!userCode.equals(SecurityUtil.onlineMap.get(key).getUserCode())){
+                    continue;
+                }
+                if(userName!=null&& !"".equals(userName)&&!userName.equals(SecurityUtil.onlineMap.get(key).getUserName())){
+                    continue;
+                }
+            }
             list.add(SecurityUtil.onlineMap.get(key));
         }
-        dataGrid.setData(list);
+        if(list.size()<page*limit){
+            dataGrid.setData(list.subList((page-1)*limit,list.size()));
+        }else{
+            dataGrid.setData(list.subList((page-1)*limit,page*limit));
+        }
+
         return dataGrid;
     }
     @Autowired

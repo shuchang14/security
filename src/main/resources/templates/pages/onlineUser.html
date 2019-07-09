@@ -75,9 +75,11 @@
                 {type: 'checkbox', fixed: 'left'}
                 ,{field: 'userCode', title: 'userCode', width:100}
                 ,{field: 'userName', title: 'userName', width:100}
-                ,{field: 'sex', title: 'sex', width:60}
-                ,{field: 'age', title: 'age', width:60,sort: true}
-                ,{field: 'tell', title: 'tell',width:230}
+                ,{field: 'ip', title: 'IP', width:130}
+                ,{field: 'loginAddr', title: 'loginAddr',width:230}
+                ,{field: 'osName', title: 'osName',width:130}
+                ,{field: 'browser', title: 'browser',width:130}
+                ,{field: 'loginTime', title: 'loginTime',width:230,sort: true}
                 ]
             ]
         });
@@ -93,7 +95,6 @@
                             userCodes.push(obj.userCode);
                         });
                         common.baseAjax('post','user/kickout',{users:JSON.stringify(userCodes)},function (result) {
-                            layer.close(addOpenIndex);
                             layer.msg('保存成功');
                             var queryform =common.formData('#query_form');// $('#query_form').serializeArray()[0];
                             console.log(queryform);

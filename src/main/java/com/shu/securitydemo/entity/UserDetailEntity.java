@@ -12,6 +12,15 @@ public class UserDetailEntity implements UserDetails ,CredentialsContainer {
     private String password;
     private final String username;
     private final Set<GrantedAuthority> authorities;
+    private UserEntity user;
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
 
     public UserDetailEntity(String username, String password, Set<GrantedAuthority> authorities) {
        this.username=username;

@@ -1,6 +1,6 @@
 layui.define('jquery', function(exports) {
     var $ = layui.jquery;
-    var baseService='http://127.0.0.1:8083/wms';
+    var baseService='/';
     var common={
         baseService:function(){
             return baseService;

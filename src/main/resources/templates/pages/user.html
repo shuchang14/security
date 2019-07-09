@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>用户管理</title>
     <link rel="stylesheet" href="./js/formSelects/dist/formSelects-v4.css" />
-    <link rel="stylesheet" href="./lib/layui/css/layui.css"  media="all">
-    <script type="text/javascript" src="./lib/layui/layui.js"></script>
+    <link rel="stylesheet" href="./layui/css/layui.css"  media="all">
+    <script type="text/javascript" src="./layui/layui.js"></script>
     <style>
 
     </style>
@@ -46,22 +46,22 @@
    </div>
    <form class="layui-form" id="addForm" lay-filter="addForm" style="display: none">
        <br>
-       <div class="layui-form-item">
-           <div class="layui-inline">
-           <label class="layui-form-label">角色</label>
-           <div class="layui-input-block" style="width: 240px;">
-               <select name="roleUuid" lay-search id="roleUuid" xm-select="select1">
-                   <option value=""></option>
-               </select>
-           </div>
-           </div>
-           <div class="layui-inline">
-               <label class="layui-form-label">年龄</label>
-               <div class="layui-input-block" style="width: 240px;">
-                   <input type="number" name="age" autocomplete="off" class="layui-input">
-               </div>
-           </div>
-       </div>
+       <!--<div class="layui-form-item">-->
+           <!--<div class="layui-inline">-->
+           <!--<label class="layui-form-label">角色</label>-->
+           <!--<div class="layui-input-block" style="width: 240px;">-->
+               <!--<select name="roleUuid" lay-search id="roleUuid" xm-select="select1">-->
+                   <!--<option value=""></option>-->
+               <!--</select>-->
+           <!--</div>-->
+           <!--</div>-->
+           <!--<div class="layui-inline">-->
+               <!--<label class="layui-form-label">年龄</label>-->
+               <!--<div class="layui-input-block" style="width: 240px;">-->
+                   <!--<input type="number" name="age" autocomplete="off" class="layui-input">-->
+               <!--</div>-->
+           <!--</div>-->
+       <!--</div>-->
        <div class="layui-form-item">
            <div class="layui-inline">
                <input type="hidden" name="userUuid">
@@ -99,12 +99,12 @@
                    <input type="text" name="tell" placeholder="请输入" autocomplete="off" class="layui-input">
                </div>
            </div>
-           <div class="layui-inline">
-               <label class="layui-form-label">邮箱</label>
-               <div class="layui-input-block" style="width: 240px;">
-                   <input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">
-               </div>
-           </div>
+           <!--<div class="layui-inline">-->
+               <!--<label class="layui-form-label">邮箱</label>-->
+               <!--<div class="layui-input-block" style="width: 240px;">-->
+                   <!--<input type="text" name="email" placeholder="请输入" autocomplete="off" class="layui-input">-->
+               <!--</div>-->
+           <!--</div>-->
 
        </div>
        <div class="layui-form-item">
@@ -174,21 +174,18 @@
         var addOpenIndex=null;
         var userTable = table.render({
             elem: '#userTable'
-            ,url:common.baseService()+'/user/userList/'
+            ,url:common.baseService()+'user/userList/'
           //  ,height:312
             ,toolbar:'#toolbarDemo'
             ,page:true
             ,cols: [
                 [
                 {type: 'checkbox', fixed: 'left'}
-              //  ,{field:'roleName',title:'角色',width:100}
                 ,{field: 'userCode', title: 'userCode', width:100}
                 ,{field: 'userName', title: 'userName', width:100}
                 ,{field: 'sex', title: 'sex', width:60}
                 ,{field: 'age', title: 'age', width:60,sort: true}
                 ,{field: 'tell', title: 'tell',width:230}
-                ,{field: 'addr', title: 'addr'}
-                ,{field: 'email', title: 'email', width: 230}
                 ]
             ]
         });
@@ -270,7 +267,7 @@
         });
         form.on('submit(saveUser)', function(data){
             console.log(data);
-            common.baseAjax('post','/user/save',{user:JSON.stringify(data.field)},function (result) {
+            common.baseAjax('post','user/register',{user:JSON.stringify(data.field)},function (result) {
                 layer.close(addOpenIndex);
                 layer.msg('保存成功');
                 var queryform =common.formData('#query_form');// $('#query_form').serializeArray()[0];

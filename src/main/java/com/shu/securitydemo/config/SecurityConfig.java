@@ -1,5 +1,6 @@
 package com.shu.securitydemo.config;
 
+import com.shu.securitydemo.filter.AfterSessionManagementFilter;
 import com.shu.securitydemo.handler.AuthenctiationFailureHandler;
 import com.shu.securitydemo.handler.AuthenticationSuccessHandler;
 import com.shu.securitydemo.service.SecurityUserService;
@@ -9,8 +10,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.session.SessionManagementFilter;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -22,6 +26,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationSuccessHandler authenticationSuccessHandler;
     @Autowired
     private AuthenctiationFailureHandler authenctiationFailureHandler;
+    @Bean
+    public SessionRegistry sessionRegistry(){
+        return new SessionRegistryImpl();
+    }
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -38,7 +46,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                .formLogin()
                .loginProcessingUrl("/login")
                .successHandler(authenticationSuccessHandler)
-               .failureHandler(authenctiationFailureHandler);
+               .failureHandler(authenctiationFailureHandler)
+               .and().headers().frameOptions().disable()//解决：springBoot springSecurty: x-frame-options deny禁止iframe调用
+               .and().sessionManagement().maximumSessions(1).expiredUrl("/user/expired").sessionRegistry(sessionRegistry());
+        http.addFilterAfter(new AfterSessionManagementFilter(),SessionManagementFilter.class);//在会话管理拦截器之后加入拦截器，拦截访问会话，更新最后访问时间
     }
 
     @Override

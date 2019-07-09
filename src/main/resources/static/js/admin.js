@@ -185,7 +185,7 @@ layui.define(['jquery', 'form', 'layer', 'element'], function(exports) {
 				//该id不存在，新增一个Tab项
 				//console.log("<0");
                // var layID = data.layId ? data.layId : new Date().getTime();
-                title += '<i class="layui-icon layui-unselect layui-tab-close" data-id="' + id + '">&#x1006;</i>';
+              //  title += '<i class="layui-icon layui-unselect layui-tab-close" data-id="' + id + '">&#x1006;</i>';
 				element.tabAdd('wenav_tab', {
 					title: title,
 					content: '<iframe tab-id="' + id + '" frameborder="0" src="' + url + '" scrolling="yes" class="weIframe"></iframe>',

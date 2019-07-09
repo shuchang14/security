@@ -20,6 +20,7 @@ public class SecurityUserService implements UserDetailsService {
             if(s.equals(user.getUserCode())){
                 Set<GrantedAuthority> authorities=new HashSet<>();
                 UserDetailEntity userDetailEntity=new UserDetailEntity(user.getUserCode(),user.getPassword(),authorities);
+                userDetailEntity.setUser(user);
                 return userDetailEntity;
             }
         }

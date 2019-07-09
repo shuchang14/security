@@ -1,0 +1,14 @@
+p > img {
+    border: 1px solid;
+    border-radius: 5px;
+}
+.table-span{padding: 5px 30px; display: inline-block;}
+
+div[xm-select-skin=zhongguohong] .xm-select-title div.xm-select-label>span {background-color: #FF0000;color: #FFF;border: 1px solid #FF0000}
+div[xm-select-skin=zhongguohong] .xm-select-title div.xm-select-label>span i {background-color: #FF0000;color: #FFF}
+div[xm-select-skin=zhongguohong] dl dd.xm-select-this:not(.xm-dis-disabled) i {color: #FF0000}
+div[xm-select-skin=zhongguohong].xm-form-selected .xm-select,div[xm-select-skin=zhongguohong].xm-form-selected .xm-select:hover {border-color: #FF0000!important}
+
+.md-danger{margin: 0px !important; padding-left: 10px; color: red; font-weight: bold;}
+.md-normal{margin: 0px !important; padding-left: 10px; color: #1E9FFF; font-weight: bold;}
+

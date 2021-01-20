@@ -1,8 +1,9 @@
-package com.shu.securitydemo.service;
+package com.shu.security.service;
 
-import com.shu.securitydemo.entity.UserDetailEntity;
-import com.shu.securitydemo.entity.UserEntity;
-import com.shu.securitydemo.util.SecurityUtil;
+import com.shu.security.entity.UserDetailEntity;
+import com.shu.security.entity.UserEntity;
+import com.shu.security.util.SecurityUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,16 +15,19 @@ import java.util.Set;
 
 @Component
 public class SecurityUserService implements UserDetailsService {
+    @Autowired
+    private UserService userService;
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        for(UserEntity user:SecurityUtil.userList){
-            if(s.equals(user.getUserCode())){
+       // for(UserEntity user:SecurityUtil.userList){
+        UserEntity user=userService.getUserByCode(s);
+            //if(s.equals(user.getUserCode())){
                 Set<GrantedAuthority> authorities=new HashSet<>();
                 UserDetailEntity userDetailEntity=new UserDetailEntity(user.getUserCode(),user.getPassword(),authorities);
                 userDetailEntity.setUser(user);
                 return userDetailEntity;
-            }
-        }
-        return null;
+            //}
+       // }
+       // return null;
     }
 }

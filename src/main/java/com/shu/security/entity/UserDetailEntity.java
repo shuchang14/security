@@ -1,4 +1,4 @@
-package com.shu.securitydemo.entity;
+package com.shu.security.entity;
 
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;

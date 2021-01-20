@@ -1,4 +1,4 @@
-package com.shu.securitydemo.handler;
+package com.shu.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +17,6 @@ public class AuthenctiationFailureHandler extends SimpleUrlAuthenticationFailure
     private ObjectMapper objectMapper;
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        response.getWriter().write(objectMapper.writeValueAsString("fff登录失败！"));
+        response.getWriter().write(objectMapper.writeValueAsString(exception.getMessage()));
     }
 }

@@ -1,4 +1,4 @@
-package com.shu.securitydemo.controller;
+package com.shu.security.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

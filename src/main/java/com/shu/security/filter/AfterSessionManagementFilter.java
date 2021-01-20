@@ -1,8 +1,8 @@
-package com.shu.securitydemo.filter;
+package com.shu.security.filter;
 
-import com.shu.securitydemo.entity.OnlineEntity;
-import com.shu.securitydemo.entity.UserDetailEntity;
-import com.shu.securitydemo.util.SecurityUtil;
+import com.shu.security.entity.OnlineEntity;
+import com.shu.security.entity.UserDetailEntity;
+import com.shu.security.util.SecurityUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -30,7 +30,7 @@ public class AfterSessionManagementFilter extends OncePerRequestFilter implement
                 userCode=userInfo.getUsername();
             }
         }
-        if(SecurityUtil.onlineMap.containsKey(userCode)) {
+        if(SecurityUtil.onlineMap!=null && SecurityUtil.onlineMap.containsKey(userCode)) {
             //已登录，更新最后访问时间
             OnlineEntity onlineUserEntity = SecurityUtil.onlineMap.get(userCode);
             onlineUserEntity.setLastVisitTime(new Date());

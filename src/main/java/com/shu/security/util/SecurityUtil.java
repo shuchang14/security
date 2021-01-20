@@ -1,7 +1,7 @@
-package com.shu.securitydemo.util;
+package com.shu.security.util;
 
-import com.shu.securitydemo.entity.OnlineEntity;
-import com.shu.securitydemo.entity.UserEntity;
+import com.shu.security.entity.OnlineEntity;
+import com.shu.security.entity.UserEntity;
 
 import java.util.ArrayList;
 import java.util.List;

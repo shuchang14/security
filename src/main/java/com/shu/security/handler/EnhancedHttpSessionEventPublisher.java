@@ -1,7 +1,7 @@
-package com.shu.securitydemo.handler;
+package com.shu.security.handler;
 
-import com.shu.securitydemo.entity.OnlineEntity;
-import com.shu.securitydemo.util.SecurityUtil;
+import com.shu.security.entity.OnlineEntity;
+import com.shu.security.util.SecurityUtil;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 import javax.servlet.http.HttpSessionEvent;

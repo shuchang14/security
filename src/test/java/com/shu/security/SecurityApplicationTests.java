@@ -1,4 +1,4 @@
-package com.shu.securitydemo;
+package com.shu.security;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SecurityDemoApplicationTests {
+public class SecurityApplicationTests {
 
     @Test
     public void contextLoads() {

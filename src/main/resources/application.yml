@@ -1,7 +1,21 @@
 server:
   port: 8085
+  servlet:
+    context-path: /security
 spring:
   mvc:
     view:
       prefix: /
       suffix: .html
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/security?useSSL=false&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update

@@ -1,9 +1,9 @@
-package com.shu.securitydemo.config;
+package com.shu.security.config;
 
-import com.shu.securitydemo.filter.AfterSessionManagementFilter;
-import com.shu.securitydemo.handler.AuthenctiationFailureHandler;
-import com.shu.securitydemo.handler.AuthenticationSuccessHandler;
-import com.shu.securitydemo.service.SecurityUserService;
+import com.shu.security.filter.AfterSessionManagementFilter;
+import com.shu.security.handler.AuthenctiationFailureHandler;
+import com.shu.security.handler.AuthenticationSuccessHandler;
+import com.shu.security.service.SecurityUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

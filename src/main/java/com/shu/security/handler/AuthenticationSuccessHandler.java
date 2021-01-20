@@ -1,10 +1,10 @@
-package com.shu.securitydemo.handler;
+package com.shu.security.handler;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.shu.securitydemo.entity.OnlineEntity;
-import com.shu.securitydemo.entity.UserDetailEntity;
-import com.shu.securitydemo.util.SecurityUtil;
+import com.shu.security.entity.OnlineEntity;
+import com.shu.security.entity.UserDetailEntity;
+import com.shu.security.util.SecurityUtil;
 import eu.bitwalker.useragentutils.Browser;
 import eu.bitwalker.useragentutils.OperatingSystem;
 import eu.bitwalker.useragentutils.UserAgent;
@@ -53,7 +53,7 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
             onlineUser0.setLoginTime(new Date(onlineUser.getLoginTime().getTime()+i));
             SecurityUtil.onlineMap.put(onlineUser0.getUserCode(),onlineUser0);
         }
-        response.sendRedirect("/toIndex");
+        response.sendRedirect("/security/toIndex");
     }
     /**
      * 获取当前登录请求信息：ip、设备 信息

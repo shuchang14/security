@@ -2,8 +2,8 @@ package com.shu.security.handler;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.shu.security.entity.OnlineEntity;
-import com.shu.security.entity.UserDetailEntity;
+import com.shu.security.dto.OnlineEntity;
+import com.shu.security.dto.UserDetailEntity;
 import com.shu.security.util.SecurityUtil;
 import eu.bitwalker.useragentutils.Browser;
 import eu.bitwalker.useragentutils.OperatingSystem;

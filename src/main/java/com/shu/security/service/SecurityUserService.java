@@ -1,8 +1,7 @@
 package com.shu.security.service;
 
-import com.shu.security.entity.UserDetailEntity;
+import com.shu.security.dto.UserDetailEntity;
 import com.shu.security.entity.UserEntity;
-import com.shu.security.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.shu.security.entity;
+package com.shu.security.dto;
 
 import java.util.List;
 

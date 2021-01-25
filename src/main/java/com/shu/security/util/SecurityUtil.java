@@ -1,6 +1,6 @@
 package com.shu.security.util;
 
-import com.shu.security.entity.OnlineEntity;
+import com.shu.security.dto.OnlineEntity;
 import com.shu.security.entity.UserEntity;
 
 import java.util.ArrayList;

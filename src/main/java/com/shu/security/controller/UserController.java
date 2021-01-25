@@ -1,8 +1,8 @@
 package com.shu.security.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.shu.security.entity.DataGridEntity;
-import com.shu.security.entity.OnlineEntity;
+import com.shu.security.dto.DataGridEntity;
+import com.shu.security.dto.OnlineEntity;
 import com.shu.security.entity.UserEntity;
 import com.shu.security.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;

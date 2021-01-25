@@ -1,7 +1,7 @@
 package com.shu.security.filter;
 
-import com.shu.security.entity.OnlineEntity;
-import com.shu.security.entity.UserDetailEntity;
+import com.shu.security.dto.OnlineEntity;
+import com.shu.security.dto.UserDetailEntity;
 import com.shu.security.util.SecurityUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.core.context.SecurityContextHolder;

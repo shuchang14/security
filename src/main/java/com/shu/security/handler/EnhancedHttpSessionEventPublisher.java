@@ -1,6 +1,6 @@
 package com.shu.security.handler;
 
-import com.shu.security.entity.OnlineEntity;
+import com.shu.security.dto.OnlineEntity;
 import com.shu.security.util.SecurityUtil;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 

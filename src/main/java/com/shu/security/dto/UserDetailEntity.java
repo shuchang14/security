@@ -1,5 +1,6 @@
-package com.shu.security.entity;
+package com.shu.security.dto;
 
+import com.shu.security.entity.UserEntity;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

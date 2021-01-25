@@ -1,7 +1,7 @@
 package com.shu.security.config;
 
 import com.shu.security.filter.AfterSessionManagementFilter;
-import com.shu.security.handler.AuthenctiationFailureHandler;
+import com.shu.security.handler.AuthenticationFailureHandler;
 import com.shu.security.handler.AuthenticationSuccessHandler;
 import com.shu.security.service.SecurityUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthenticationSuccessHandler authenticationSuccessHandler;
     @Autowired
-    private AuthenctiationFailureHandler authenctiationFailureHandler;
+    private AuthenticationFailureHandler authenctiationFailureHandler;
     @Bean
     public SessionRegistry sessionRegistry(){
         return new SessionRegistryImpl();
